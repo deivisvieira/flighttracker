@@ -22,9 +22,15 @@ STATUS_FILE = "last_status.json"
 
 def load_last_status():
     if os.path.exists(STATUS_FILE):
+        if os.path.getsize(STATUS_FILE) == 0:
+            return {}  # arquivo vazio → retorna dicionário vazio
         with open(STATUS_FILE, "r") as f:
-            return json.load(f)
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                return {}  # conteúdo inválido → ignora e começa do zero
     return {}
+
 
 def save_status(data):
     with open(STATUS_FILE, "w") as f:
