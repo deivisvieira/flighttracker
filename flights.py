@@ -8,7 +8,7 @@ WHATSAPP_KEY     = os.getenv("CALLMEBOT_APIKEY")
 AVIATIONSTACK_KEY= os.getenv("AVIATIONSTACK_KEY")
 
 # Voos a monitorar
-FLIGHTS = ["LA3339", "LA8112", "AMX694"]
+FLIGHTS = ["LA3339", "LA8112", "AM694"]
 
 STATUS_FILE = "last_status.json"
 
