@@ -1,8 +1,8 @@
-name: Monitor Voos e Enviar WhatsApp
+name: Monitor Voos (AviationStack) e Enviar WhatsApp
 
 on:
   schedule:
-    - cron: "*/30 * * * *"  # A cada 30 minutos
+    - cron: "*/30 * * * *"  # a cada 30 minutos
   workflow_dispatch:
 
 jobs:
@@ -23,4 +23,5 @@ jobs:
         env:
           CALLMEBOT_PHONE: ${{ secrets.CALLMEBOT_PHONE }}
           CALLMEBOT_APIKEY: ${{ secrets.CALLMEBOT_APIKEY }}
+          AVIATIONSTACK_KEY: ${{ secrets.AVIATIONSTACK_KEY }}
         run: python flights.py
