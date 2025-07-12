@@ -48,9 +48,9 @@ def fetch_flight(iata):
 def build_summary(f):
     """Resumo compacto usado para detectar mudança."""
     return "|".join([
-        f.get("flight_status",""),
-        f["departure"].get("actual",""),
-        f["arrival"].get("estimated","")
+        str(f.get("flight_status") or ""),
+        str(f["departure"].get("actual") or ""),
+        str(f["arrival"].get("estimated") or "")
     ])
 
 def build_message(iata, f):
